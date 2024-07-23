@@ -2,6 +2,11 @@
 import pandas as pd
 import pickle
 import streamlit as st
+from projet3_kidney.py import prediction_kidney
+from projet_3_diabetes.py import prediction_diabete
+from projet_3_liver.py import prediction_liver
+from projet_3_coeur_py.py import prediction_maladie_cardiaque
+from projet_3_breast_cancer.py import prediction_breastcancer
 from streamlit_option_menu import option_menu
 
 
