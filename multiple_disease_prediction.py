@@ -25,7 +25,7 @@ with st.sidebar:
                           
                           ['Diabetes Prediction',
                            'Heart Disease Prediction',
-                           'Parkinsons Prediction',
+                           'Kidney Disease Prediction',
                            'Breast Cancer Prediction'],
                           icons=['activity','heart-pulse','person', 'clipboard2-pulse'],
                           default_index=0)
@@ -153,10 +153,10 @@ if (selected == 'Heart Disease Prediction'):
     
 
 # Parkinson's Prediction Page
-if (selected == "Parkinsons Prediction"):
+if (selected == "Kidney Disease Prediction"):
     
     # page title
-    st.title("Parkinson's Disease Prediction using ML")
+    st.title("Kidney Disease Prediction using ML")
     
     col1, col2, col3, col4, col5 = st.columns(5)  
     
