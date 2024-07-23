@@ -36,7 +36,9 @@ if (selected == 'Diabetes Prediction'):
     
     # page title
     st.title('Diabetes Prediction using ML')
-    
+
+    # upload csv
+    uploaded_file = st.file_uploader("Choose a file")
     
     # getting the input data from the user
     col1, col2, col3 = st.columns(3)
