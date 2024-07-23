@@ -56,10 +56,15 @@ if (selected == 'Heart Disease Prediction'):
 
     uploaded_file = st.file_uploader("Choose a file")
 
-    df_test = pd.read_csv(uploaded_file)    
+    age=None
+    
+    if uploaded_file is not None:
+        df_test = pd.read_csv(uploaded_file)
+        age=df_test["age"][0]
+    
     col1, col2, col3 = st.columns(3)
     with col1:
-        age = st.text_input('Age',value=df_test["Age"])
+        age = st.text_input('Age',value=age)
     with col2:
         sex = st.text_input('Sex(1 for male, 0 for female)')
     with col3:
