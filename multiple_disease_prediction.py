@@ -1,362 +1,192 @@
 # -*- coding: utf-8 -*-
-
-
+import pandas as pd
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
 
-# loading the saved models
-
-diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
-
-heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
-
-parkinsons_model = pickle.load(open('parkinsons_model.sav', 'rb'))
-
-BreastCancer_model = pickle.load(open('BreastCancer_model.sav', 'rb'))
-
-
-
 # sidebar for navigation
 with st.sidebar:
-    
     selected = option_menu('Multiple Disease Prediction System',
-                          
                           ['Diabetes Prediction',
                            'Heart Disease Prediction',
-                           'Kidney Disease Prediction',
-                           'Breast Cancer Prediction'],
+                           'Liver Prediction',
+                           'Kidney Prediction','Breast Cancer Prediction'],
                           icons=['activity','heart-pulse','person', 'clipboard2-pulse'],
                           default_index=0)
-    
-    
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
-    
     # page title
     st.title('Diabetes Prediction using ML')
-
-    # upload csv
-    uploaded_file = st.file_uploader("Choose a file")
-    
     # getting the input data from the user
     col1, col2, col3 = st.columns(3)
-    
     with col1:
         Pregnancies = st.text_input('Number of Pregnancies')
-        
     with col2:
         Glucose = st.text_input('Glucose Level')
-    
     with col3:
         BloodPressure = st.text_input('Blood Pressure value')
-    
     with col1:
-        SkinThickness = st.text_input('Skin Thickness value')
-    
-    with col2:
         Insulin = st.text_input('Insulin Level')
-    
-    with col3:
-        BMI = st.text_input('BMI value')
-    
-    with col1:
-        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
-    
     with col2:
+        BMI = st.text_input('BMI value')
+    with col3:
+        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
+    with col1:
         Age = st.text_input('Age of the Person')
-    
-    
     # code for Prediction
     diab_diagnosis = ''
-    
     # creating a button for Prediction
-    
     if st.button('Diabetes Test Result'):
-        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
-        
+        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, Insulin, BMI, DiabetesPedigreeFunction, Age]])
         if (diab_prediction[0] == 1):
           diab_diagnosis = 'The person is diabetic'
         else:
           diab_diagnosis = 'The person is not diabetic'
-        
     st.success(diab_diagnosis)
-
-
-
-
 # Heart Disease Prediction Page
 if (selected == 'Heart Disease Prediction'):
-    
     # page title
     st.title('Heart Disease Prediction using ML')
-    
     col1, col2, col3 = st.columns(3)
-    
     with col1:
         age = st.text_input('Age')
-        
     with col2:
         sex = st.text_input('Sex(1 for male, 0 for female)')
-        
     with col3:
         cp = st.text_input('Chest Pain types')
-        
     with col1:
         trestbps = st.text_input('Resting Blood Pressure')
-        
     with col2:
         chol = st.text_input('Serum Cholestoral in mg/dl')
-        
     with col3:
         fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl')
-        
     with col1:
         restecg = st.text_input('Resting Electrocardiographic results')
-        
     with col2:
         thalach = st.text_input('Maximum Heart Rate achieved')
-        
     with col3:
         exang = st.text_input('Exercise Induced Angina')
-        
     with col1:
         oldpeak = st.text_input('ST depression induced by exercise')
-        
     with col2:
         slope = st.text_input('Slope of the peak exercise ST segment')
-        
     with col3:
         ca = st.text_input('Major vessels colored by flourosopy')
-        
     with col1:
         thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
-        
-        
-     
-     
     # code for Prediction
     heart_diagnosis = ''
-    
     # creating a button for Prediction
-    
     if st.button('Heart Disease Test Result'):
-        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                          
-        
+        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
         if (heart_prediction[0] == 1):
           heart_diagnosis = 'The person is having heart disease'
         else:
           heart_diagnosis = 'The person does not have any heart disease'
-        
     st.success(heart_diagnosis)
-        
-    
-    
-
-# Parkinson's Prediction Page
-if (selected == "Kidney Disease Prediction"):
-    
+# liver_model's Prediction Page
+if (selected == "Liver Prediction"):
     # page title
-    st.title("Kidney Disease Prediction using ML")
-    
-    col1, col2, col3, col4, col5 = st.columns(5)  
-    
+    st.title("Liver's Disease Prediction using ML")
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        fo = st.text_input('MDVP_Fo(Hz)')
-        
+        Age = st.text_input('Age')
     with col2:
-        fhi = st.text_input('MDVP_Fhi(Hz)')
-        
+        Total_Bilirubin = st.text_input('Total_Bilirubin')
     with col3:
-        flo = st.text_input('MDVP_Flo(Hz)')
-        
+        Alkaline_Phosphotase = st.text_input('Alkaline_Phosphotase')
     with col4:
-        Jitter_percent = st.text_input('MDVP_Jitter(%)')
-        
+        Alamine_Aminotransferase = st.text_input('Alamine_Aminotransferase')
     with col5:
-        Jitter_Abs = st.text_input('MDVP_Jitter(Abs)')
-        
+        Albumin_and_Globulin_Ratio = st.text_input('Albumin_and_Globulin_Ratio')
     with col1:
-        RAP = st.text_input('MDVP_RAP')
-        
+        Gender_Female = st.text_input('Gender_Female')
     with col2:
-        PPQ = st.text_input('MDVP_PPQ')
-        
-    with col3:
-        DDP = st.text_input('Jitter:DDP')
-        
-    with col4:
-        Shimmer = st.text_input('MDVP_Shimmer')
-        
-    with col5:
-        Shimmer_dB = st.text_input('MDVP_Shimmer(dB)')
-        
-    with col1:
-        APQ3 = st.text_input('Shimmer_APQ3')
-        
-    with col2:
-        APQ5 = st.text_input('Shimmer_APQ5')
-        
-    with col3:
-        APQ = st.text_input('MDVP_APQ')
-        
-    with col4:
-        DDA = st.text_input('Shimmer_DDA')
-        
-    with col5:
-        NHR = st.text_input('NHR')
-        
-    with col1:
-        HNR = st.text_input('HNR')
-        
-    with col2:
-        RPDE = st.text_input('RPDE')
-        
-    with col3:
-        DFA = st.text_input('DFA')
-        
-    with col4:
-        spread1 = st.text_input('spread1')
-        
-    with col5:
-        spread2 = st.text_input('spread2')
-        
-    with col1:
-        D2 = st.text_input('D2')
-        
-    with col2:
-        PPE = st.text_input('PPE')
-        
-    
-    
+        Gender_Male = st.text_input('Gender_Male')
     # code for Prediction
-    parkinsons_diagnosis = ''
-    
-    # creating a button for Prediction    
-    if st.button("Parkinson's Test Result"):
-        parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])                          
-        
-        if (parkinsons_prediction[0] == 1):
-          parkinsons_diagnosis = "The person has Parkinson's disease"
+    liver_diagnosis = ''
+    # creating a button for Prediction
+    if st.button("Liver's Test Result"):
+        liver_prediction = liver_model.predict([[Age, Total_Bilirubin, Alkaline_Phosphotase, Alamine_Aminotransferase, Albumin_and_Globulin_Ratio, Gender_Female, Gender_Male]])
+        if (liver_prediction[0] == 1):
+          liver_diagnosis = "The person has Liver's disease"
         else:
-          parkinsons_diagnosis = "The person does not have Parkinson's disease"
-        
-    st.success(parkinsons_diagnosis)
-
+          liver_diagnosis = "The person does not have Liver's disease"
+    st.success(liver_diagnosis)
 # Breast Cancer Prediction Page
 if (selected == "Breast Cancer Prediction"):
-    
     # page title
     st.title("Breast Cancer Prediction using ML")
-    
-    col1, col2, col3, col4, col5 = st.columns(5)  
-
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        fo = st.number_input('mean radius')
-        
+        radius_mean = st.number_input('mean radius')
     with col2:
-        fhi = st.number_input('mean texture')
-        
+        texture_mean = st.number_input('mean texture')
     with col3:
-        flo = st.number_input('mean perimeter')
-        
+        perimeter_mean = st.number_input('mean perimeter')
     with col4:
-        Jitter_percent = st.number_input('mean area')
-        
+        area_mean = st.number_input('mean area')
     with col5:
-        Jitter_Abs = st.number_input('mean smoothness')
-        
+        smoothness_mean = st.number_input('mean smoothness')
     with col1:
-        RAP = st.number_input('mean compactness')
-        
+        compactness_mean = st.number_input('mean compactness')
     with col2:
-        PPQ = st.number_input('mean concavity')
-        
+        concavity_mean = st.number_input('mean concavity')
     with col3:
-        DDP = st.number_input('mean concave points')
-        
+        points_mean = st.number_input('mean concave points')
     with col4:
-        Shimmer = st.number_input('mean symmetry')
-        
+        symmetry_mean = st.number_input('mean symmetry')
     with col5:
-        Shimmer_dB = st.number_input('mean fractal dimension')
-        
+        fractal_dimension_mean = st.number_input('mean fractal dimension')
     with col1:
-        APQ3 = st.number_input('radius error')
-        
+        radius_se = st.number_input('radius error')
     with col2:
-        APQ4 = st.number_input('texture error')
-
+        texture_se = st.number_input('texture error')
     with col3:
-        APQ5 = st.number_input('perimeter error')
-        
+        perimeter_se = st.number_input('perimeter error')
     with col4:
-        APQ = st.number_input('area error')
-        
+        area_se = st.number_input('area error')
     with col5:
-        DDA = st.number_input('smoothness error')
-        
+        smoothness_se = st.number_input('smoothness error')
     with col1:
-        NHR = st.number_input('compactness error')
-        
+        compactness_se = st.number_input('compactness error')
     with col2:
-        HNR = st.number_input('concavity error')
-        
+        concavity_se = st.number_input('concavity error')
     with col3:
-        RPDE = st.number_input('concave points error')
-        
+        points_se = st.number_input('concave points error')
     with col4:
-        DFA = st.number_input('symmetry error')
-
+        symmetry_se = st.number_input('symmetry error')
     with col5:
-        spread1 = st.number_input('fractal dimension error')
-        
+        fractal_dimension_se = st.number_input('fractal dimension error')
     with col1:
-        spread2 = st.number_input('worst radius')
-        
+        radius_worst = st.number_input('worst radius')
     with col2:
-        D2 = st.number_input('worst texture')
-        
+        texture_worst = st.number_input('worst texture')
     with col3:
-        PPE = st.number_input('worst perimeter')
-
-        
+        perimeter_worst = st.number_input('worst perimeter')
     with col4:
-        wa = st.number_input('worst area')
-        
+        area_worst = st.number_input('worst area')
     with col5:
-        ws = st.number_input('worst smoothness')
-        
+        smoothness_worst = st.number_input('worst smoothness')
     with col1:
-        w_cm = st.number_input('worst compactness')
-
+        compactness_worst = st.number_input('worst compactness')
     with col2:
-        w_con = st.number_input('worst concavity')
-        
+        concavity_worst = st.number_input('worst concavity')
     with col3:
-        w_cp = st.number_input('worst concave points')
-
-        
+        points_worst = st.number_input('worst concave points')
     with col4:
-        w_sym = st.number_input('worst symmetry')
-        
+        symmetry_worst = st.number_input('worst symmetry')
     with col5:
-        w_fd = st.number_input('worst fractal dimension')
-        
-    
-    
+        fractal_dimension_worst = st.number_input('worst fractal dimension')
     # code for Prediction
     cancer_diagnosis = ''
-    
-    # creating a button for Prediction    
+    # creating a button for Prediction
     if st.button("Breast Cancer Test Result"):
-        cancer_prediction = BreastCancer_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ4,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE, wa, ws, w_cm, w_con, w_cp, w_sym, w_fd]])                          
-        
+        cancer_prediction = BreastCancer_model.predict([[radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean, compactness_mean, concavity_mean,
+ points_mean, symmetry_mean,fractal_dimension_mean,radius_se,texture_se,perimeter_se,area_se,smoothness_se,compactness_se,concavity_se,points_se,symmetry_se,fractal_dimension_se,radius_worst,texture_worst,perimeter_worst,area_worst,smoothness_worst,compactness_worst,concavity_worst,points_worst,symmetry_worst,fractal_dimension_worst]])
         if (cancer_prediction[0] == 1):
           cancer_diagnosis = "The Breast Cancer is Benign"
         else:
           cancer_diagnosis = "The Breast cancer is Malignant"
-        
     st.warning(cancer_diagnosis)
-
