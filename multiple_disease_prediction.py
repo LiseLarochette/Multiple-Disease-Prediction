@@ -53,9 +53,13 @@ if (selected == 'Diabetes Prediction'):
 if (selected == 'Heart Disease Prediction'):
     # page title
     st.title('Heart Disease Prediction using ML')
+
+    uploaded_file = st.file_uploader("Choose a file")
+
+    df_test = pd.read_csv(uploaded_file)    
     col1, col2, col3 = st.columns(3)
     with col1:
-        age = st.text_input('Age')
+        age = st.text_input('Age',value=df_test["Age"])
     with col2:
         sex = st.text_input('Sex(1 for male, 0 for female)')
     with col3:
