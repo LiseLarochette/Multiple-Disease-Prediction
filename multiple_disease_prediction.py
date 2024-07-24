@@ -28,7 +28,7 @@ with st.sidebar:
 if (selected == 'Diabetes Prediction'):
     # page title
     st.title('Diabetes Prediction using ML')
-    diabete_uploaded_file = st.file_uploader("Choose a file",type="csv)
+    diabete_uploaded_file = st.file_uploader("Choose a file",type="csv")
     
     # getting the input data from the user
     Pregnancies = None
@@ -81,7 +81,7 @@ if (selected == 'Diabetes Prediction'):
 if (selected == 'Heart Disease Prediction'):
     # page title
     st.title('Heart Disease Prediction using ML')
-    heart_uploaded_file = st.file_uploader("Choose a file",type="csv)
+    heart_uploaded_file = st.file_uploader("Choose a file",type="csv")
     age = None
     sex = None
     cp = None
@@ -236,7 +236,7 @@ sod, pot, hemo, pcv, wc, rc, htn, dm, cad, appet, pe, ane]])
 if (selected == "Liver Prediction"):
     # page title
     st.title("Liver's Disease Prediction using ML")
-    liver_uploaded_file = st.file_uploader("Choose a file",type="csv)
+    liver_uploaded_file = st.file_uploader("Choose a file",type="csv")
     Age = None
     Total_Bilirubin = None
     Alkaline_Phosphotase = None
