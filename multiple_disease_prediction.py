@@ -28,7 +28,7 @@ with st.sidebar:
 if (selected == 'Diabetes Prediction'):
     # page title
     st.title('Diabetes Prediction using ML')
-    uploaded_file = st.file_uploader("Choose a file")
+    diabete_uploaded_file = st.file_uploader("Choose a file")
     
     # getting the input data from the user
     Pregnancies = None
@@ -39,7 +39,7 @@ if (selected == 'Diabetes Prediction'):
     DiabetesPedigreeFunction = None
     Age = None
     if uploaded_file is not None:
-        df_test = pd.read_csv(uploaded_file)
+        df_test = pd.read_csv(diabete_uploaded_file)
         Pregnancies = df_test["Pregnancies"][0]
         Glucose = df_test["Glucose"][0]
         BloodPressure = df_test["BloodPressure"][0]
@@ -70,12 +70,7 @@ if (selected == 'Diabetes Prediction'):
     # creating a button for Prediction
     
     if st.button('Diabetes Test Result'):
-        #diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, Insulin, BMI, DiabetesPedigreeFunction, Age]])
-        diab_diagnosis = prediction_diabete(uploaded_file)
-        #if (diab_prediction[0] == 1):
-         # diab_diagnosis = 'The person is diabetic'
-        #else:
-         # diab_diagnosis = 'The person is not diabetic'
+        diab_diagnosis = prediction_diabete([[Pregnancies, Glucose, BloodPressure, Insulin, BMI, DiabetesPedigreeFunction, Age]])
         
     st.success(diab_diagnosis)
 
@@ -86,7 +81,7 @@ if (selected == 'Diabetes Prediction'):
 if (selected == 'Heart Disease Prediction'):
     # page title
     st.title('Heart Disease Prediction using ML')
-    uploaded_file = st.file_uploader("Choose a file")
+    heart_uploaded_file = st.file_uploader("Choose a file")
     age = None
     sex = None
     cp = None
@@ -101,7 +96,7 @@ if (selected == 'Heart Disease Prediction'):
     ca = None
     thal = None
     if uploaded_file is not None:
-        df_test = pd.read_csv(uploaded_file)
+        df_test = pd.read_csv(heart_uploaded_file)
         age = df_test["age"][0]
         sex = df_test["sex"][0]
         cp = df_test["cp"][0]
@@ -151,14 +146,9 @@ if (selected == 'Heart Disease Prediction'):
     
     # creating a button for Prediction
     
-    if st.button('Heart Disease Test Result'):
-        #heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])                          
+    if st.button('Heart Disease Test Result'):                        
         heart_diagnosis = prediction_maladie_cardiaque([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
         
-        #if (heart_prediction[0] == 1):
-          #heart_diagnosis = 'The person is having heart disease'
-       # else:
-          #heart_diagnosis = 'The person does not have any heart disease'
         
     st.success(heart_diagnosis)
 
