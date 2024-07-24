@@ -43,7 +43,8 @@ y_pred = pipeline.predict(X_test)
 
 def prediction_liver(liste):
     
-  df_csv = pd.DataFrame(liste, columns=['Age', 'Total_Bilirubin', 'Alkaline_Phosphotase', 'Alamine_Aminotransferase', 'Albumin_and_Globulin_Ratio', 'Gender_Female', 'Gender_Male']))
+  df_csv = pd.DataFrame(liste, columns=['Age', 'Total_Bilirubin', 'Alkaline_Phosphotase', 'Alamine_Aminotransferase', 'Albumin_and_Globulin_Ratio', 'Gender']))
+  df_csv = pd.get_dummies(df_csv)
 
   if pipeline.predict(df_csv)[0] == 0 :
     return "La maladie n'est pas détectée"
