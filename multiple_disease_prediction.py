@@ -164,53 +164,53 @@ if (selected == "Kidney Prediction"):
     col1, col2, col3, col4, col5 = st.columns(5) 
     
     with col1:
-        age = st.number_input('Age')        
+        age = st.text_input('Age')
     with col2:
-        bp = st.number_input('Blood Pressure (mmHg)')        
+        bp = st.text_input('Blood Pressure (mmHg)')
     with col3:
-        sg = st.number_input('Specific Gravity')        
+        sg = st.text_input('Specific Gravity')
     with col4:
-        al = st.number_input('Albumin')        
+        al = st.text_input('Albumin')
     with col5:
-        su = st.number_input('Sugar')        
+        su = st.text_input('Sugar')
     with col1:
-        rbc = st.number_input('Red Blood Cells (normal or anormal)')        
+        rbc = st.text_input('Red Blood Cells (normal or anormal)')
     with col2:
-        pc = st.number_input('Pus Cell (present or notpresent)')  
+        pc = st.text_input('Pus Cell (present or notpresent)')
     with col3:
-        pcc = st.number_input('Pus Cell Clumps (present or notpresent)')
+        pcc = st.text_input('Pus Cell Clumps (present or notpresent)')
     with col4:
-        ba = st.number_input('Bacteria')   
+        ba = st.text_input('Bacteria')
     with col5:
-        bgr = st.number_input('Blood Glucose Random') 
+        bgr = st.text_input('Blood Glucose Random')
     with col1:
-        bu = st.number_input('Blood Urea')   
+        bu = st.text_input('Blood Urea')
     with col2:
-        sc = st.number_input('Serum Creatinine')
+        sc = st.text_input('Serum Creatinine')
     with col3:
-        sod = st.number_input('Sodium') 
+        sod = st.text_input('Sodium')
     with col4:
-        pot = st.text_input('Potassium')   
+        pot = st.text_input('Potassium')
     with col5:
-        hemo = st.number_input('Haemoglobin')   
+        hemo = st.text_input('Haemoglobin')
     with col1:
-        pcv = st.number_input('Packed Cell Volume')    
+        pcv = st.text_input('Packed Cell Volume')
     with col2:
-        wc = st.number_input('White Blood Cell Count')
+        wc = st.text_input('White Blood Cell Count')
     with col3:
-        rc = st.number_input('Red Blood Cell Count')
+        rc = st.text_input('Red Blood Cell Count')
     with col4:
-        htn = st.number_input('Hypertension (yes or no)')
+        htn = st.text_input('Hypertension (yes or no)')
     with col5:
-        dm = st.number_input('Diabetes Mellitus (yes or no)')
+        dm = st.text_input('Diabetes Mellitus (yes or no)')
     with col1:
-        cad = st.number_input('Coronary Artery Disease (yes or no)')
+        cad = st.text_input('Coronary Artery Disease (yes or no)')
     with col2:
-        appet = st.number_input('Appetite (good or poor)')  
+        appet = st.text_input('Appetite (good or poor)')
     with col3:
-        pe = st.number_input('Pedal Edema (yes or no)') 
+        pe = st.text_input('Pedal Edema (yes or no)')
     with col4:
-        ane = st.number_input('Anemia')        
+        ane = st.text_input('Anemia')       
     
 
 
