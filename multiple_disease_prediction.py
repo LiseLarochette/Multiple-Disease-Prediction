@@ -413,7 +413,7 @@ if (selected == "Breast Cancer Prediction"):
     
     # creating a button for Prediction    
     if st.button("Breast Cancer Test Result"):
-        cancer_prediction = prediction_breastcancer([radius_mean,
+        cancer_prediction = prediction_breastcancer([[radius_mean,
             texture_mean,
             perimeter_mean,
             area_mean,
@@ -442,6 +442,6 @@ if (selected == "Breast Cancer Prediction"):
             concavity_worst,
             points_worst,
             symmetry_worst,
-            fractal_dimension_worst])
+            fractal_dimension_worst]])
         
     st.warning(cancer_diagnosis)
