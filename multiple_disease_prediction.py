@@ -275,7 +275,7 @@ if (selected == "Liver Prediction"):
     
     # creating a button for Prediction    
     if st.button("Liver's Test Result"):
-        liver_diagnosis = prediction_liver([[Age, Total_Bilirubin, Alkaline_Phosphotase, Alamine_Aminotransferase, Albumin_and_Globulin_Ratio, Gender_Female, Gender_Male]])                          
+        liver_diagnosis = prediction_liver([[Age, Total_Bilirubin, Alkaline_Phosphotase, Alamine_Aminotransferase, Albumin_and_Globulin_Ratio, Gender]])                          
         
     st.success(liver_diagnosis)
 
