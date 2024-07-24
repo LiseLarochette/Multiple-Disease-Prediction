@@ -323,7 +323,7 @@ if (selected == "Breast Cancer Prediction"):
         smoothness_mean = df_test['smoothness_mean'][0]
         compactness_mean = df_test['compactness_mean'][0]
         concavity_mean = df_test['concavity_mean'][0]
-        points_mean = df_test['points_mean'][0]
+        points_mean = df_test['concave points_mean'][0]
         symmetry_mean = df_test['symmetry_mean'][0]
         fractal_dimension_mean = df_test['fractal_dimension_mean'][0]
         radius_se = df_test['radius_se'][0]
