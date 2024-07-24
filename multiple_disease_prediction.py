@@ -166,7 +166,7 @@ if (selected == "Kidney Prediction"):
     with col1:
         age = st.number_input('Age')        
     with col2:
-        bp = st.number_input('Blood Pressure')        
+        bp = st.number_input('Blood Pressure (mmHg)')        
     with col3:
         sg = st.number_input('Specific Gravity')        
     with col4:
@@ -174,11 +174,11 @@ if (selected == "Kidney Prediction"):
     with col5:
         su = st.number_input('Sugar')        
     with col1:
-        rbc = st.number_input('Red Blood Cells')        
+        rbc = st.number_input('Red Blood Cells (normal or anormal)')        
     with col2:
-        pc = st.number_input('Pus Cell')  
+        pc = st.number_input('Pus Cell (present or notpresent)')  
     with col3:
-        pcc = st.number_input('Pus Cell Clumps')
+        pcc = st.number_input('Pus Cell Clumps (present or notpresent)')
     with col4:
         ba = st.number_input('Bacteria')   
     with col5:
@@ -196,19 +196,19 @@ if (selected == "Kidney Prediction"):
     with col1:
         pcv = st.number_input('Packed Cell Volume')    
     with col2:
-        wc = st.number_input('White Blood')
+        wc = st.number_input('White Blood Cell Count')
     with col3:
         rc = st.number_input('Red Blood Cell Count')
     with col4:
-        htn = st.number_input('Hypertension')
+        htn = st.number_input('Hypertension (yes or no)')
     with col5:
-        dm = st.number_input('Diabetes Mellitus')
+        dm = st.number_input('Diabetes Mellitus (yes or no)')
     with col1:
-        cad = st.number_input('Coronary Artery Disease')
+        cad = st.number_input('Coronary Artery Disease (yes or no)')
     with col2:
-        appet = st.number_input('Appetite')  
+        appet = st.number_input('Appetite (good or poor)')  
     with col3:
-        pe = st.number_input('Pedal Edema') 
+        pe = st.number_input('Pedal Edema (yes or no)') 
     with col4:
         ane = st.number_input('Anemia')        
     
