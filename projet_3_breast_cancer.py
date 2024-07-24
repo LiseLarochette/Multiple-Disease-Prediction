@@ -48,46 +48,8 @@ pipeline.fit(X_train, y_train)
 y_pred = pipeline.predict(X_test)
 
 
-def prediction_breastcancer(csv):
-  df_csv = pd.read_csv(csv)
-  df_csv = df_csv[['radius_mean',
-                   'texture_mean',
-                   'perimeter_mean',
-                   'area_mean',
-                   'smoothness_mean',
-                   'compactness_mean',
-                   'concavity_mean',
-                   'concave points_mean',
-                   'symmetry_mean',
-                   'fractal_dimension_mean',
-                   'radius_se',
-                   'texture_se',
-                   'perimeter_se',
-                   'area_se',
-                   'smoothness_se',
-                   'compactness_se',
-                   'concavity_se',
-                   'concave points_se',
-                   'symmetry_se',
-                   'fractal_dimension_se',
-                   'radius_worst',
-                   'texture_worst',
-                   'perimeter_worst',
-                   'area_worst',
-                   'smoothness_worst',
-                   'compactness_worst',
-                   'concavity_worst',
-                   'concave points_worst',
-                   'symmetry_worst',
-                   'fractal_dimension_worst' ]]
-  if pipeline.predict(df_csv)[0] == 0 :
+def prediction_breastcancer(liste):
+  if pipeline.predict(liste)[0] == 0 :
     return "Tumeur bénigne"
   else :
     return "Tumeur maligne"
-
-df_breast_test = df_breast_cancer.sample(1)
-df_breast_test
-
-df_breast_test.to_csv('df_breast_test.csv')
-
-prediction_breastcancer('df_breast_test.csv')
