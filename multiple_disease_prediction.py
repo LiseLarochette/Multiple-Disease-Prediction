@@ -85,58 +85,64 @@ if (selected == 'Diabetes Prediction'):
 
 # Heart Disease Prediction Page
 if (selected == 'Heart Disease Prediction'):
-    
     # page title
     st.title('Heart Disease Prediction using ML')
     uploaded_file = st.file_uploader("Choose a file")
-
-    age=None
-    sex=None
-    
+    age = None
+    sex = None
+    cp = None
+    trestbps = None
+    chol = None
+    fbs = None
+    restecg = None
+    thalac = None
+    exang = None
+    oldpeak = None
+    slope = None
+    ca = None
+    thal = None
     if uploaded_file is not None:
         df_test = pd.read_csv(uploaded_file)
         age = df_test["age"][0]
         sex = df_test["sex"][0]
-    
+        cp = df_test["cp"][0]
+        trestbps = df_test['trestbps'][0]
+        chol = df_test['chol'][0]
+        fbs = df_test['fbs'][0]
+        restecg = df_test['restecg'][0]
+        thalach = df_test['thalach'][0]
+        exang = df_test['exang'][0]
+        oldpeak = df_test['oldpeak'][0]
+        slope = df_test['slope'][0]
+        ca = df_test['ca'][0]
+        thal = df_test['thal'][0]
     col1, col2, col3 = st.columns(3)
     with col1:
         age = st.text_input('Age',value=age)
-        
     with col2:
         sex = st.text_input('Sex(1 for male, 0 for female)',value=sex)
-        
     with col3:
-        cp = st.text_input('Chest Pain types')
-        
+        cp = st.text_input('Chest Pain types', value = cp)
     with col1:
-        trestbps = st.text_input('Resting Blood Pressure')
-        
+        trestbps = st.text_input('Resting Blood Pressure', value = trestbps)
     with col2:
-        chol = st.text_input('Serum Cholestoral in mg/dl')
-        
+        chol = st.text_input('Serum Cholestoral in mg/dl', value = chol)
     with col3:
-        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl')
-        
+        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl', value = fbs)
     with col1:
-        restecg = st.text_input('Resting Electrocardiographic results')
-        
+        restecg = st.text_input('Resting Electrocardiographic results', value = restecg)
     with col2:
-        thalach = st.text_input('Maximum Heart Rate achieved')
-        
+        thalach = st.text_input('Maximum Heart Rate achieved', value = thalach)
     with col3:
-        exang = st.text_input('Exercise Induced Angina')
-        
+        exang = st.text_input('Exercise Induced Angina', value = exang)
     with col1:
-        oldpeak = st.text_input('ST depression induced by exercise')
-        
+        oldpeak = st.text_input('ST depression induced by exercise', value = oldpeak)
     with col2:
-        slope = st.text_input('Slope of the peak exercise ST segment')
-        
+        slope = st.text_input('Slope of the peak exercise ST segment', value = slope)
     with col3:
-        ca = st.text_input('Major vessels colored by flourosopy')
-        
+        ca = st.text_input('Major vessels colored by flourosopy', value = ca)
     with col1:
-        thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
+        thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect', value = thal)
         
         
      
