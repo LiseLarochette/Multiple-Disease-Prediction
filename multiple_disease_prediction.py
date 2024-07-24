@@ -282,103 +282,131 @@ if (selected == "Liver Prediction"):
 
 # Breast Cancer Prediction Page
 if (selected == "Breast Cancer Prediction"):
-    
     # page title
     st.title("Breast Cancer Prediction using ML")
-    
-    col1, col2, col3, col4, col5 = st.columns(5)  
-
+    col1, col2, col3, col4, col5 = st.columns(5)
+    radius_mean = None
+    texture_mean = None
+    perimeter_mean = None
+    area_mean = None
+    smoothness_mean = None
+    compactness_mean = None
+    concavity_mean = None
+    points_mean = None
+    symmetry_mean = None
+    fractal_dimension_mean = None
+    radius_se = None
+    texture_se = None
+    perimeter_se = None
+    area_se = None
+    smoothness_se = None
+    compactness_se = None
+    concavity_se = None
+    points_se = None
+    symmetry_se = None
+    fractal_dimension_se = None
+    radius_worst = None
+    texture_worst = None
+    perimeter_worst = None
+    area_worst = None
+    smoothness_worst = None
+    compactness_worst = None
+    concavity_worst = None
+    points_worst = None
+    symmetry_worst = None
+    fractal_dimension_worst = None
+    if uploaded_file is not None:
+        df_test = pd.read_csv(uploaded_file)
+        radius_mean = df_test["radius_mean"][0]
+        texture_mean = df_test["texture_mean"][0]
+        perimeter_mean = df_test["perimeter_mean"][0]
+        area_mean = df_test['area_mean'][0]
+        smoothness_mean = df_test['smoothness_mean'][0]
+        compactness_mean = df_test['compactness_mean'][0]
+        concavity_mean = df_test['concavity_mean'][0]
+        points_mean = df_test['points_mean'][0]
+        symmetry_mean = df_test['symmetry_mean'][0]
+        fractal_dimension_mean = df_test['fractal_dimension_mean'][0]
+        radius_se = df_test['radius_se'][0]
+        texture_se = df_test['texture_se'][0]
+        perimeter_se = df_test['perimeter_se'][0]
+        area_se = df_test["area_se"][0]
+        smoothness_se = df_test["sex"][0]
+        compactness_se = df_test["compactness_se"][0]
+        concavity_se = df_test['concavity_se'][0]
+        points_se = df_test['points_se'][0]
+        symmetry_se = df_test['symmetry_se'][0]
+        fractal_dimension_se = df_test['fractal_dimension_se'][0]
+        radius_worst = df_test['radius_worst'][0]
+        texture_worst =df_test['texture_worst'][0]
+        perimeter_worst = df_test['perimeter_worst'][0]
+        area_worst = df_test['area_worst'][0]
+        smoothness_worst = df_test['smoothness_worst'][0]
+        compactness_worst = df_test['compactness_worst'][0]
+        concavity_worst = df_test['concavity_worst'][0]
+        points_worst = df_test['points_worst'][0]
+        symmetry_worst = df_test['symmetry_worst'][0]
+        fractal_dimension_worst = df_test['fractal_dimension_worst'][0]
     with col1:
-        radius_mean = st.number_input('mean radius')
-        
+        radius_mean = st.number_input('mean radius', value = radius_mean)
     with col2:
-        texture_mean = st.number_input('mean texture')
-        
+        texture_mean = st.number_input('mean texture', value = texture_mean)
     with col3:
-        perimeter_mean = st.number_input('mean perimeter')
-        
+        perimeter_mean = st.number_input('mean perimeter', value = perimeter_mean)
     with col4:
-        area_mean = st.number_input('mean area')
-        
+        area_mean = st.number_input('mean area', value = mean area)
     with col5:
-        smoothness_mean = st.number_input('mean smoothness')
-        
+        smoothness_mean = st.number_input('mean smoothness', value = smoothness_mean  )
     with col1:
-        compactness_mean = st.number_input('mean compactness')
-        
+        compactness_mean = st.number_input('mean compactness', value = mean compactness)
     with col2:
-        concavity_mean = st.number_input('mean concavity')
-        
+        concavity_mean = st.number_input('mean concavity', value = mean concavity)
     with col3:
-        points_mean = st.number_input('mean concave points')
-        
+        points_mean = st.number_input('mean concave points', value = mean concave points)
     with col4:
-        symmetry_mean = st.number_input('mean symmetry')
-        
+        symmetry_mean = st.number_input('mean symmetry', value = mean symmetry)
     with col5:
-        fractal_dimension_mean = st.number_input('mean fractal dimension')
-        
+        fractal_dimension_mean = st.number_input('mean fractal dimension', value = mean fractal dimension)
     with col1:
-        radius_se = st.number_input('radius error')
-        
+        radius_se = st.number_input('radius error', value = radius error)
     with col2:
-        texture_se = st.number_input('texture error')
-
+        texture_se = st.number_input('texture error', value = texture error)
     with col3:
-        perimeter_se = st.number_input('perimeter error')
-        
+        perimeter_se = st.number_input('perimeter error', value = perimeter error)
     with col4:
-        area_se = st.number_input('area error')
-        
+        area_se = st.number_input('area error', value = area error)
     with col5:
-        smoothness_se = st.number_input('smoothness error')
-        
+        smoothness_se = st.number_input('smoothness error', value = smoothness error)
     with col1:
-        compactness_se = st.number_input('compactness error')
-        
+        compactness_se = st.number_input('compactness error', value = compactness error)
     with col2:
-        concavity_se = st.number_input('concavity error')
-        
+        concavity_se = st.number_input('concavity error', value =  concavity error)
     with col3:
-        points_se = st.number_input('concave points error')
-        
+        points_se = st.number_input('concave points error', value = concave points error)
     with col4:
-        symmetry_se = st.number_input('symmetry error')
-
+        symmetry_se = st.number_input('symmetry error', value = symmetry error)
     with col5:
-        fractal_dimension_se = st.number_input('fractal dimension error')
-        
+        fractal_dimension_se = st.number_input('fractal dimension error', value = fractal_dimension)
     with col1:
-        radius_worst = st.number_input('worst radius')
-        
+        radius_worst = st.number_input('worst radius', value = worst radius)
     with col2:
-        texture_worst = st.number_input('worst texture')
-        
+        texture_worst = st.number_input('worst texture', value = worst texture)
     with col3:
-        perimeter_worst = st.number_input('worst perimeter')
-
-        
+        perimeter_worst = st.number_input('worst perimeter', value = worst perimeter)
     with col4:
-        area_worst = st.number_input('worst area')
-        
+        area_worst = st.number_input('worst area', value = worst area)
     with col5:
-        smoothness_worst = st.number_input('worst smoothness')
-        
+        smoothness_worst = st.number_input('worst smoothness', value = wors smoothness )
     with col1:
-        compactness_worst = st.number_input('worst compactness')
-
+        compactness_worst = st.number_input('worst compactness', value = worst compactness)
     with col2:
-        concavity_worst = st.number_input('worst concavity')
-        
+        concavity_worst = st.number_input('worst concavity', value = worst concavity)
     with col3:
-        points_worst = st.number_input('worst concave points')
-
-        
+        points_worst = st.number_input('worst concave points', value = worst concave points)
     with col4:
-        symmetry_worst = st.number_input('worst symmetry')
-        
+        symmetry_worst = st.number_input('worst symmetry', value = worst symmetry)
     with col5:
-        fractal_dimension_worst = st.number_input('worst fractal dimension')
+        fractal_dimension_worst = st.number_input('worst fractal dimension', value = worst fractal dimension)
         
     
     # code for Prediction
@@ -416,9 +444,5 @@ if (selected == "Breast Cancer Prediction"):
                    'concave points_worst',
                    'symmetry_worst',
                    'fractal_dimension_worst' ])
-        if (cancer_prediction[0] == 1):
-          cancer_diagnosis = "The Breast Cancer is Benign"
-        else:
-          cancer_diagnosis = "The Breast cancer is Malignant"
         
     st.warning(cancer_diagnosis)
