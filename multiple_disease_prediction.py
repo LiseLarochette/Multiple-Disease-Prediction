@@ -279,7 +279,6 @@ if (selected == "Liver Prediction"):
         
     st.success(liver_diagnosis)
 
-
 # Breast Cancer Prediction Page
 if (selected == "Breast Cancer Prediction"):
     # page title
@@ -354,60 +353,59 @@ if (selected == "Breast Cancer Prediction"):
     with col3:
         perimeter_mean = st.number_input('mean perimeter', value = perimeter_mean)
     with col4:
-        area_mean = st.number_input('mean area', value = mean area)
+        area_mean = st.number_input('mean area', value = area_mean)
     with col5:
         smoothness_mean = st.number_input('mean smoothness', value = smoothness_mean  )
     with col1:
-        compactness_mean = st.number_input('mean compactness', value = mean compactness)
+        compactness_mean = st.number_input('mean compactness', value = compactness_mean)
     with col2:
-        concavity_mean = st.number_input('mean concavity', value = mean concavity)
+        concavity_mean = st.number_input('mean concavity', value = concavity_mean)
     with col3:
-        points_mean = st.number_input('mean concave points', value = mean concave points)
+        points_mean = st.number_input('mean concave points', value =  points_mean )
     with col4:
         symmetry_mean = st.number_input('mean symmetry', value = mean symmetry)
     with col5:
         fractal_dimension_mean = st.number_input('mean fractal dimension', value = mean fractal dimension)
     with col1:
-        radius_se = st.number_input('radius error', value = radius error)
+        radius_se = st.number_input('radiuserror', value = radius_se)
     with col2:
-        texture_se = st.number_input('texture error', value = texture error)
+        texture_se = st.number_input('texture error', value = texture_se )
     with col3:
-        perimeter_se = st.number_input('perimeter error', value = perimeter error)
+        perimeter_se = st.number_input('perimeter error', value = perimeter_se )
     with col4:
-        area_se = st.number_input('area error', value = area error)
+        area_se = st.number_input('area error', value = area_se )
     with col5:
-        smoothness_se = st.number_input('smoothness error', value = smoothness error)
+        smoothness_se = st.number_input('smoothness error', value = smoothness_se )
     with col1:
-        compactness_se = st.number_input('compactness error', value = compactness error)
+        compactness_se = st.number_input('compactness error', value = compactness_se )
     with col2:
-        concavity_se = st.number_input('concavity error', value =  concavity error)
+        concavity_se = st.number_input('concavity error', value =  concavity_se )
     with col3:
-        points_se = st.number_input('concave points error', value = concave points error)
+        points_se = st.number_input('concave points error', value = points_se)
     with col4:
-        symmetry_se = st.number_input('symmetry error', value = symmetry error)
+        symmetry_se = st.number_input('symmetry error', value = symmetry_se)
     with col5:
-        fractal_dimension_se = st.number_input('fractal dimension error', value = fractal_dimension)
+        fractal_dimension_se = st.number_input('fractal dimension error', value = fractal_dimension_se)
     with col1:
-        radius_worst = st.number_input('worst radius', value = worst radius)
+        radius_worst = st.number_input('worst radius', value = radius_worst)
     with col2:
-        texture_worst = st.number_input('worst texture', value = worst texture)
+        texture_worst = st.number_input('worst texture', value = texture_worst )
     with col3:
-        perimeter_worst = st.number_input('worst perimeter', value = worst perimeter)
+        perimeter_worst = st.number_input('worst perimeter', value =  perimeter_worst)
     with col4:
-        area_worst = st.number_input('worst area', value = worst area)
+        area_worst = st.number_input('worst area', value = area_worst)
     with col5:
-        smoothness_worst = st.number_input('worst smoothness', value = wors smoothness )
+        smoothness_worst = st.number_input('worst smoothness', value = smoothness_worst  )
     with col1:
-        compactness_worst = st.number_input('worst compactness', value = worst compactness)
+        compactness_worst = st.number_input('worst compactness', value = compactness_worst)
     with col2:
-        concavity_worst = st.number_input('worst concavity', value = worst concavity)
+        concavity_worst = st.number_input('worst concavity', value = concavity_worst)
     with col3:
-        points_worst = st.number_input('worst concave points', value = worst concave points)
+        points_worst = st.number_input('worst concave points', value =  points_worst )
     with col4:
-        symmetry_worst = st.number_input('worst symmetry', value = worst symmetry)
+        symmetry_worst = st.number_input('worst symmetry', value = symmetry_worst )
     with col5:
-        fractal_dimension_worst = st.number_input('worst fractal dimension', value = worst fractal dimension)
-        
+        fractal_dimension_worst = st.number_input('worst fractal dimension', value =  fractal_dimension_worst )
     
     # code for Prediction
     cancer_diagnosis = ''
