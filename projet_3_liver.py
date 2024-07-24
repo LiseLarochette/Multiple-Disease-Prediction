@@ -41,21 +41,11 @@ pipeline.fit(X_train, y_train)
 # Prédictions sur l'ensemble de test
 y_pred = pipeline.predict(X_test)
 
-def prediction_liver(csv):
-  df_csv = pd.read_csv(csv)
-  df_csv = pd.get_dummies(df_csv)
-
-  df_csv = df_csv[['Age', 'Total_Bilirubin', 'Alkaline_Phosphotase', 'Alamine_Aminotransferase', 'Albumin_and_Globulin_Ratio', 'Gender_Female', 'Gender_Male']]
+def prediction_liver(liste):
+    
+  df_csv = pd.DataFrame(liste, columns=['Age', 'Total_Bilirubin', 'Alkaline_Phosphotase', 'Alamine_Aminotransferase', 'Albumin_and_Globulin_Ratio', 'Gender_Female', 'Gender_Male']))
 
   if pipeline.predict(df_csv)[0] == 0 :
     return "La maladie n'est pas détectée"
   else :
     return "La maladie est détectée"
-
-liver_test = liver.drop(columns = ['Dataset'], axis = 1)
-
-liver_test = liver.sample(1)
-
-liver_test.to_csv('liver_test.csv')
-
-prediction_liver('liver_test.csv')
