@@ -11,20 +11,6 @@ from projet_3_breast_cancer import prediction_breastcancer
 from streamlit_option_menu import option_menu
 
 
-# loading the saved models
-
-diabetes_model = pd.read_csv('df_diabete_clean_zero.csv')
-
-heart_disease_model = pd.read_csv('df_coeur_clean.csv')
-
-liver_model = pd.read_csv('liver.csv')
-
-kidney_model = pd.read_csv('kidney_clean.csv')
-
-BreastCancer_model = pd.read_csv('df_breast_cancer.csv')
-
-
-
 # sidebar for navigation
 with st.sidebar:
     
@@ -84,12 +70,12 @@ if (selected == 'Diabetes Prediction'):
     # creating a button for Prediction
     
     if st.button('Diabetes Test Result'):
-        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, Insulin, BMI, DiabetesPedigreeFunction, Age]])
-        
-        if (diab_prediction[0] == 1):
-          diab_diagnosis = 'The person is diabetic'
-        else:
-          diab_diagnosis = 'The person is not diabetic'
+        #diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, Insulin, BMI, DiabetesPedigreeFunction, Age]])
+        diab_diagnosis = prediction_diabete(uploaded_file)
+        #if (diab_prediction[0] == 1):
+         # diab_diagnosis = 'The person is diabetic'
+        #else:
+         # diab_diagnosis = 'The person is not diabetic'
         
     st.success(diab_diagnosis)
 
