@@ -364,7 +364,7 @@ if (selected == "Breast Cancer Prediction"):
     with col3:
         points_mean = st.number_input('mean concave points', value =  points_mean )
     with col4:
-        symmetry_mean = st.number_input('mean symmetry', value = mean_symmetry)
+        symmetry_mean = st.number_input('mean symmetry', value = symmetry_mean)
     with col5:
         fractal_dimension_mean = st.number_input('mean fractal dimension', value = mean_fractal_dimension)
     with col1:
