@@ -3,6 +3,11 @@
 import pandas as pd
 import pickle
 import streamlit as st
+from projet3_kidney import prediction_kidney
+from projet_3_diabetes import prediction_diabete
+from projet_3_liver import prediction_liver
+from projet_3_coeur_py import prediction_maladie_cardiaque
+from projet_3_breast_cancer import prediction_breastcancer
 from streamlit_option_menu import option_menu
 
 
@@ -153,12 +158,13 @@ if (selected == 'Heart Disease Prediction'):
     # creating a button for Prediction
     
     if st.button('Heart Disease Test Result'):
-        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])                          
+        #heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])                          
+        heart_diagnosis = prediction_maladie_cardiaque(uploaded_file)
         
-        if (heart_prediction[0] == 1):
-          heart_diagnosis = 'The person is having heart disease'
-        else:
-          heart_diagnosis = 'The person does not have any heart disease'
+        #if (heart_prediction[0] == 1):
+          #heart_diagnosis = 'The person is having heart disease'
+       # else:
+          #heart_diagnosis = 'The person does not have any heart disease'
         
     st.success(heart_diagnosis)
 
