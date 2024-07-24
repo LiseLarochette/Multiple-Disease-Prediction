@@ -242,7 +242,7 @@ if (selected == "Liver Prediction"):
     # page title
     st.title("Liver's Disease Prediction using ML")
     
-    col1, col2, col3, col4, col5 = st.columns(5)  
+    col1, col2, col3 = st.columns(3)  
     
     with col1:
         Age = st.text_input('Age')
@@ -253,13 +253,13 @@ if (selected == "Liver Prediction"):
     with col3:
         Alkaline_Phosphotase = st.text_input('Alkaline_Phosphotase')
         
-    with col4:
+    with col1:
         Alamine_Aminotransferase = st.text_input('Alamine_Aminotransferase')
         
-    with col5:
+    with col2:
         Albumin_and_Globulin_Ratio = st.text_input('Albumin_and_Globulin_Ratio')
         
-    with col1:
+    with col3:
         Gender = st.text_input('Gender')
         
          
