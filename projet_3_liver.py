@@ -45,7 +45,7 @@ def prediction_liver(liste):
     
   df_csv = pd.DataFrame(liste, columns=['Age', 'Total_Bilirubin', 'Alkaline_Phosphotase', 'Alamine_Aminotransferase', 'Albumin_and_Globulin_Ratio', 'Gender'])
   df_csv = pd.DataFrame(liste, columns=['Age', 'Total_Bilirubin', 'Alkaline_Phosphotase', 'Alamine_Aminotransferase', 'Albumin_and_Globulin_Ratio', 'Gender'])
-  if df_csv["Gender"]=="Male":
+  if df_csv["Gender"][0]=="Male":
     df_csv = df_csv.drop(columns="Gender")
     df_csv["Gender_Male"] = 1
     df_csv["Gender_Female"] = 0
