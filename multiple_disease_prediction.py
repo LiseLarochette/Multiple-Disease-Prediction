@@ -330,7 +330,7 @@ if (selected == "Breast Cancer Prediction"):
         texture_se = df_test['texture_se'][0]
         perimeter_se = df_test['perimeter_se'][0]
         area_se = df_test["area_se"][0]
-        smoothness_se = df_test["sex"][0]
+        smoothness_se = df_test["smoothness_se"][0]
         compactness_se = df_test["compactness_se"][0]
         concavity_se = df_test['concavity_se'][0]
         points_se = df_test['points_se'][0]
