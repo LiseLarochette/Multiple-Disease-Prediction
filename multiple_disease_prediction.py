@@ -38,7 +38,7 @@ if (selected == 'Diabetes Prediction'):
     BMI = None
     DiabetesPedigreeFunction = None
     Age = None
-    if uploaded_file is not None:
+    if diabete_uploaded_file is not None:
         df_test = pd.read_csv(diabete_uploaded_file)
         Pregnancies = df_test["Pregnancies"][0]
         Glucose = df_test["Glucose"][0]
@@ -95,7 +95,7 @@ if (selected == 'Heart Disease Prediction'):
     slope = None
     ca = None
     thal = None
-    if uploaded_file is not None:
+    if heart_uploaded_file is not None:
         df_test = pd.read_csv(heart_uploaded_file)
         age = df_test["age"][0]
         sex = df_test["sex"][0]
