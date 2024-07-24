@@ -366,7 +366,7 @@ if (selected == "Breast Cancer Prediction"):
     with col4:
         symmetry_mean = st.number_input('mean symmetry', value = symmetry_mean)
     with col5:
-        fractal_dimension_mean = st.number_input('mean fractal dimension', value = mean_fractal_dimension)
+        fractal_dimension_mean = st.number_input('mean fractal dimension', value = fractal_dimension_mean)
     with col1:
         radius_se = st.number_input('radiuserror', value = radius_se)
     with col2:
