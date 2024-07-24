@@ -283,7 +283,7 @@ if (selected == "Liver Prediction"):
 if (selected == "Breast Cancer Prediction"):
     # page title
     st.title("Breast Cancer Prediction using ML")
-    col1, col2, col3, col4, col5 = st.columns(5)
+    breast_uploaded_file = st.file_uploader("Choose a file",type="csv")
     radius_mean = None
     texture_mean = None
     perimeter_mean = None
@@ -314,8 +314,8 @@ if (selected == "Breast Cancer Prediction"):
     points_worst = None
     symmetry_worst = None
     fractal_dimension_worst = None
-    if uploaded_file is not None:
-        df_test = pd.read_csv(uploaded_file)
+    if breast_uploaded_file is not None:
+        df_test = pd.read_csv(breast_uploaded_file)
         radius_mean = df_test["radius_mean"][0]
         texture_mean = df_test["texture_mean"][0]
         perimeter_mean = df_test["perimeter_mean"][0]
@@ -346,6 +346,7 @@ if (selected == "Breast Cancer Prediction"):
         points_worst = df_test['points_worst'][0]
         symmetry_worst = df_test['symmetry_worst'][0]
         fractal_dimension_worst = df_test['fractal_dimension_worst'][0]
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         radius_mean = st.number_input('mean radius', value = radius_mean)
     with col2:
