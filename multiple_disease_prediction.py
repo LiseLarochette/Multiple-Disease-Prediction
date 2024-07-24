@@ -251,18 +251,18 @@ if (selected == "Liver Prediction"):
         Alamine_Aminotransferase = df_test["Alamine_Aminotransferase"][0]
         Albumin_and_Globulin_Ratio = df_test["Albumin_and_Globulin_Ratio"][0]
         Gender = df_test["Gender"][0]
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3 = st.columns(3)
     with col1:
         Age = st.text_input('Age of the Person', value = Age)
     with col2:
         Total_Bilirubin = st.text_input('Total Bilirubin', value = Total_Bilirubin)
     with col3:
         Alkaline_Phosphotase = st.text_input('Alkaline Phosphotase', value = Alkaline_Phosphotase)
-    with col4:
-        Alamine_Aminotransferase = st.text_input('Alamine Aminotransferase', value = Alamine_Aminotransferase)
-    with col5:
-        Albumin_and_Globulin_Ratio = st.text_input('Albumin and Globulin Ratio', value = Albumin_and_Globulin_Ratio)
     with col1:
+        Alamine_Aminotransferase = st.text_input('Alamine Aminotransferase', value = Alamine_Aminotransferase)
+    with col2:
+        Albumin_and_Globulin_Ratio = st.text_input('Albumin and Globulin Ratio', value = Albumin_and_Globulin_Ratio)
+    with col3:
         Gender = st.text_input('Gender', value = Gender)
         
          
