@@ -54,18 +54,8 @@ pipeline.fit(X_train, y_train)
 # Prédictions sur l'ensemble de test
 y_pred = pipeline.predict(X_test)
 
-def prediction_diabete(csv):
-  df_csv = pd.read_csv(csv)
-  df_csv = df_csv[['Pregnancies', 'Glucose', 'BloodPressure', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']]
-  if pipeline.predict(df_csv)[0] == 0 :
+def prediction_diabete(liste):
+  if pipeline.predict(liste)[0] == 0 :
     return "La personne est non diabétique"
   else :
     return "La personne est diabétique"
-
-df_diabete_test = df_diabete.drop(columns = ['Outcome'], axis = 1)
-
-df_diabete_test = df_diabete_test.sample(1)
-
-df_diabete_test.to_csv('df_diabete_test.csv')
-
-prediction_diabete('df_diabete_test.csv')
