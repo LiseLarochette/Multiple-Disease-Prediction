@@ -40,34 +40,42 @@ with st.sidebar:
     
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
-    
     # page title
     st.title('Diabetes Prediction using ML')
-    
+    uploaded_file = st.file_uploader("Choose a file")
     
     # getting the input data from the user
+    Pregnancies = None
+    Glucose = None
+    BloodPressure = None
+    Insulin = None
+    BMI = None
+    DiabetesPedigreeFunction = None
+    Age = None
+    if uploaded_file is not None:
+        df_test = pd.read_csv(uploaded_file)
+        Pregnancies = df_test["Pregnancies"][0]
+        Glucose = df_test["Glucose"][0]
+        BloodPressure = df_test["BloodPressure"][0]
+        Insulin = df_test['Insulin'][0]
+        BMI = df_test['BMI'][0]
+        DiabetesPedigreeFunction = df_test['DiabetesPedigreeFunction'][0]
+        Age = df_test['Age'][0]
     col1, col2, col3 = st.columns(3)
-    
     with col1:
-        Pregnancies = st.text_input('Number of Pregnancies')
-        
+        Pregnancies = st.text_input('Number of Pregnancies', value = Pregnancies)
     with col2:
-        Glucose = st.text_input('Glucose Level')
-    
+        Glucose = st.text_input('Glucose Level', value = Glucose)
     with col3:
-        BloodPressure = st.text_input('Blood Pressure value')
-    
+        BloodPressure = st.text_input('Blood Pressure value', value = BloodPressure)
     with col1:
-        Insulin = st.text_input('Insulin Level')
-    
+        Insulin = st.text_input('Insulin Level', value = Insulin)
     with col2:
-        BMI = st.text_input('BMI value')
-    
+        BMI = st.text_input('BMI value', value = BMI)
     with col3:
-        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
-    
+        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value', value = DiabetesPedigreeFunction)
     with col1:
-        Age = st.text_input('Age of the Person')
+        Age = st.text_input('Age of the Person', value = Age)
     
     
     # code for Prediction
@@ -250,29 +258,36 @@ sod, pot, hemo, pcv, wc, rc, htn, dm, cad, appet, pe, ane]])
 
 # liver_model's Prediction Page
 if (selected == "Liver Prediction"):
-    
     # page title
     st.title("Liver's Disease Prediction using ML")
-    
-    col1, col2, col3 = st.columns(3)  
-    
+    uploaded_file = st.file_uploader("Choose a file")
+    Age = None
+    Total_Bilirubin = None
+    Alkaline_Phosphotase = None
+    Alamine_Aminotransferase = None
+    Albumin_and_Globulin_Ratio = None
+    Gender = None
+    if uploaded_file is not None:
+        df_test = pd.read_csv(uploaded_file)
+        Age = df_test["Age"][0]
+        Total_Bilirubin = df_test["Total_Bilirubin"][0]
+        Alkaline_Phosphotase = df_test["Alkaline_Phosphotase"][0]
+        Alamine_Aminotransferase = df_test["Alamine_Aminotransferase"][0]
+        Albumin_and_Globulin_Ratio = df_test["Albumin_and_Globulin_Ratio"][0]
+        Gender = df_test["Gender"][0]
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        Age = st.text_input('Age')
-        
+        Age = st.text_input('Age of the Person', value = Age)
     with col2:
-        Total_Bilirubin = st.text_input('Total_Bilirubin')
-        
+        Total_Bilirubin = st.text_input('Total Bilirubin', value = Total_Bilirubin)
     with col3:
-        Alkaline_Phosphotase = st.text_input('Alkaline_Phosphotase')
-        
+        Alkaline_Phosphotase = st.text_input('Alkaline Phosphotase', value = Alkaline_Phosphotase)
+    with col4:
+        Alamine_Aminotransferase = st.text_input('Alamine Aminotransferase', value = Alamine_Aminotransferase)
+    with col5:
+        Albumin_and_Globulin_Ratio = st.text_input('Albumin and Globulin Ratio', value = Albumin_and_Globulin_Ratio)
     with col1:
-        Alamine_Aminotransferase = st.text_input('Alamine_Aminotransferase')
-        
-    with col2:
-        Albumin_and_Globulin_Ratio = st.text_input('Albumin_and_Globulin_Ratio')
-        
-    with col3:
-        Gender = st.text_input('Gender')
+        Gender = st.text_input('Gender', value = Gender)
         
          
         
