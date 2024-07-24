@@ -45,18 +45,8 @@ pipeline = ImbPipeline([
 pipeline.fit(X_train, y_train)
 # Prédictions sur l'ensemble de test
 y_pred = pipeline.predict(X_test)
-def prediction_maladie_cardiaque(csv):
-  df_csv = pd.read_csv(csv)
-  df_csv = df_csv[['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal']]
-  if pipeline.predict(df_csv)[0] == 0 :
+def prediction_maladie_cardiaque(liste):
+  if pipeline.predict(liste)[0] == 0 :
     return "La personne présente une maladie cardiaque"
   else :
     return "La personne ne présente pas de maladies cardiaques"
-
-df_coeur_test = df_coeur_clean.drop(columns = ['target'], axis = 1)
-
-df_coeur_test = df_coeur_test.sample(1)
-df_coeur_clean.to_csv('df_coeur_clean.csv')
-df_coeur_test.to_csv('df_coeur_test.csv')
-
-prediction_maladie_cardiaque('df_coeur_test.csv')
