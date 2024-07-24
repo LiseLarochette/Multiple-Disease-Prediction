@@ -28,7 +28,7 @@ with st.sidebar:
 if (selected == 'Diabetes Prediction'):
     # page title
     st.title('Diabetes Prediction using ML')
-    diabete_uploaded_file = st.file_uploader("Choose a file")
+    diabete_uploaded_file = st.file_uploader("Choose a file",type="csv)
     
     # getting the input data from the user
     Pregnancies = None
@@ -81,7 +81,7 @@ if (selected == 'Diabetes Prediction'):
 if (selected == 'Heart Disease Prediction'):
     # page title
     st.title('Heart Disease Prediction using ML')
-    heart_uploaded_file = st.file_uploader("Choose a file")
+    heart_uploaded_file = st.file_uploader("Choose a file",type="csv)
     age = None
     sex = None
     cp = None
@@ -236,15 +236,15 @@ sod, pot, hemo, pcv, wc, rc, htn, dm, cad, appet, pe, ane]])
 if (selected == "Liver Prediction"):
     # page title
     st.title("Liver's Disease Prediction using ML")
-    uploaded_file = st.file_uploader("Choose a file")
+    liver_uploaded_file = st.file_uploader("Choose a file",type="csv)
     Age = None
     Total_Bilirubin = None
     Alkaline_Phosphotase = None
     Alamine_Aminotransferase = None
     Albumin_and_Globulin_Ratio = None
     Gender = None
-    if uploaded_file is not None:
-        df_test = pd.read_csv(uploaded_file)
+    if liver_uploaded_file is not None:
+        df_test = pd.read_csv(liver_uploaded_file)
         Age = df_test["Age"][0]
         Total_Bilirubin = df_test["Total_Bilirubin"][0]
         Alkaline_Phosphotase = df_test["Alkaline_Phosphotase"][0]
@@ -275,12 +275,7 @@ if (selected == "Liver Prediction"):
     
     # creating a button for Prediction    
     if st.button("Liver's Test Result"):
-        liver_prediction = liver_model.predict([[Age, Total_Bilirubin, Alkaline_Phosphotase, Alamine_Aminotransferase, Albumin_and_Globulin_Ratio, Gender_Female, Gender_Male]])                          
-        
-        if (liver_prediction[0] == 1):
-          liver_diagnosis = "The person has Liver's disease"
-        else:
-          liver_diagnosis = "The person does not have Liver's disease"
+        liver_diagnosis = prediction_liver([[Age, Total_Bilirubin, Alkaline_Phosphotase, Alamine_Aminotransferase, Albumin_and_Globulin_Ratio, Gender_Female, Gender_Male]])                          
         
     st.success(liver_diagnosis)
 
