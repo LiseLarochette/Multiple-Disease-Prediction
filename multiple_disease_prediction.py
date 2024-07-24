@@ -343,7 +343,7 @@ if (selected == "Breast Cancer Prediction"):
         smoothness_worst = df_test['smoothness_worst'][0]
         compactness_worst = df_test['compactness_worst'][0]
         concavity_worst = df_test['concavity_worst'][0]
-        points_worst = df_test['points_worst'][0]
+        points_worst = df_test['concave points_worst'][0]
         symmetry_worst = df_test['symmetry_worst'][0]
         fractal_dimension_worst = df_test['fractal_dimension_worst'][0]
     col1, col2, col3, col4, col5 = st.columns(5)
