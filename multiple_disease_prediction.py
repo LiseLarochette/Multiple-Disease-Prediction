@@ -95,7 +95,7 @@ if (selected == 'Heart Disease Prediction'):
     chol = None
     fbs = None
     restecg = None
-    thalac = None
+    thalach = None
     exang = None
     oldpeak = None
     slope = None
