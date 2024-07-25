@@ -246,10 +246,10 @@ if (selected == "Liver Prediction"):
     if liver_uploaded_file is not None:
         df_test = pd.read_csv(liver_uploaded_file)
         Age = df_test["Age"][0]
-        Total_Bilirubin = df_test["Total_Bilirubin"][0]
-        Alkaline_Phosphotase = df_test["Alkaline_Phosphotase"][0]
-        Alamine_Aminotransferase = df_test["Alamine_Aminotransferase"][0]
-        Albumin_and_Globulin_Ratio = df_test["Albumin_and_Globulin_Ratio"][0]
+        Total_Bilirubin = df_test["Total_bilirubin"][0]
+        Alkaline_Phosphotase = df_test["Alkaline_phosphotase"][0]
+        Alamine_Aminotransferase = df_test["Alamine_aminotransferase"][0]
+        Albumin_and_Globulin_Ratio = df_test["Albumin_and_globulin_ratio"][0]
         Gender = df_test["Gender"][0]
     col1, col2, col3 = st.columns(3)
     with col1:
