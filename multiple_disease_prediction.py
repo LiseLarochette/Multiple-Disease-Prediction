@@ -160,57 +160,107 @@ if (selected == "Kidney Prediction"):
     
     # page title
     st.title("kidney's Disease Prediction using ML")
-    
+    kidney_uploaded_file = st.file_uploader("Choose a file",type="csv")
+    age=None
+    blood_pressure=None
+    specific_gravity=None
+    albumin=None
+    sugar=None
+    red_blood_cells=None
+    pus_cell=None
+    pus_cell_clumps=None
+    bacteria=None
+    blood_glucose_random=None
+    blood_urea=None
+    serum_creatine=None
+    sodium=None
+    potassium=None
+    haemoglobin=None
+    packed_cell_volume=None
+    white_blood_cell_count=None
+    hypertension=None
+    diabetes_mellitus=None
+    coronary_artery_disease=None
+    appetite=None
+    peda_edema=None
+    aanemia=None
+    if kidney_uploaded_file is not None:
+        df_test = pd.read_csv(kidney_uploaded_file)
+        age = df_test["age"][0]
+        blood_pressure = df_test["blood_pressure"][0]
+        specific_gravity = df_test["specific_gravity"][0]
+        albumin = df_test["albumin"][0]
+        sugar = df_test["sugar"][0]
+        red_blood_cells = df_test["red_blood_cells"][0]
+        pus_cell = df_test["pus_cell"][0]
+        pus_cell_clumps = df_test["pus_cell_clumps"][0]
+        bacteria = df_test["bacteria"][0]
+        blood_glucose_random = df_test["blood_glucose_random"][0]
+        blood_urea = df_test["blood_urea"][0]
+        serum_creatine = df_test["serum_creatine"][0]
+        sodium = df_test["sodium"][0]
+        potassium = df_test["potassium"][0]
+        haemoglobin = df_test["haemoglobin"][0]
+        packed_cell_volume = df_test["packed_cell_volume"][0]
+        white_blood_cell_count = df_test["white_blood_cell_count"][0]
+        hypertension = df_test["hypertension"][0]
+        diabetes_mellitus = df_test["diabetes_mellitus"][0]
+        coronary_artery_disease = df_test["coronary_artery_disease"][0]
+        appetite = df_test["appetite"][0]
+        peda_edema = df_test["peda_edema"][0]
+        aanemia = df_test["aanemia"][0]
+
     col1, col2, col3, col4, col5 = st.columns(5) 
     
     with col1:
-        age = st.text_input('Age')
+        age = st.text_input('Age', value=age)
     with col2:
-        bp = st.text_input('Blood Pressure (mmHg)')
+        bp = st.text_input('Blood Pressure (mmHg)', value=blood_pressure)
     with col3:
-        sg = st.text_input('Specific Gravity')
+        sg = st.text_input('Specific Gravity', value=specific_gravity)
     with col4:
-        al = st.text_input('Albumin')
+        al = st.text_input('Albumin', value=albumin)
     with col5:
-        su = st.text_input('Sugar')
+        su = st.text_input('Sugar', value=sugar)
     with col1:
-        rbc = st.text_input('Red Blood Cells (normal or anormal)')
+        rbc = st.text_input('Red Blood Cells (normal or abnormal)', value=red_blood_cells)
     with col2:
-        pc = st.text_input('Pus Cell (present or notpresent)')
+        pc = st.text_input('Pus Cell (present or not present)', value=pus_cell)
     with col3:
-        pcc = st.text_input('Pus Cell Clumps (present or notpresent)')
+        pcc = st.text_input('Pus Cell Clumps (present or not present)', value=pus_cell_clumps)
     with col4:
-        ba = st.text_input('Bacteria')
+        ba = st.text_input('Bacteria', value=bacteria)
     with col5:
-        bgr = st.text_input('Blood Glucose Random')
+        bgr = st.text_input('Blood Glucose Random', value=blood_glucose_random)
     with col1:
-        bu = st.text_input('Blood Urea')
+        bu = st.text_input('Blood Urea', value=blood_urea)
     with col2:
-        sc = st.text_input('Serum Creatinine')
+        sc = st.text_input('Serum Creatinine', value=serum_creatine)
     with col3:
-        sod = st.text_input('Sodium')
+        sod = st.text_input('Sodium', value=sodium)
     with col4:
-        pot = st.text_input('Potassium')
+        pot = st.text_input('Potassium', value=potassium)
     with col5:
-        hemo = st.text_input('Haemoglobin')
+        hemo = st.text_input('Haemoglobin', value=haemoglobin)
     with col1:
-        pcv = st.text_input('Packed Cell Volume')
+        pcv = st.text_input('Packed Cell Volume', value=packed_cell_volume)
     with col2:
-        wc = st.text_input('White Blood Cell Count')
+        wc = st.text_input('White Blood Cell Count', value=white_blood_cell_count)
     with col3:
-        rc = st.text_input('Red Blood Cell Count')
+        rc = st.text_input('Red Blood Cell Count', value=red_blood_cells)
     with col4:
-        htn = st.text_input('Hypertension (yes or no)')
+        htn = st.text_input('Hypertension (yes or no)', value=hypertension)
     with col5:
-        dm = st.text_input('Diabetes Mellitus (yes or no)')
+        dm = st.text_input('Diabetes Mellitus (yes or no)', value=diabetes_mellitus)
     with col1:
-        cad = st.text_input('Coronary Artery Disease (yes or no)')
+        cad = st.text_input('Coronary Artery Disease (yes or no)', value=coronary_artery_disease)
     with col2:
-        appet = st.text_input('Appetite (good or poor)')
+        appet = st.text_input('Appetite (good or poor)', value=appetite)
     with col3:
-        pe = st.text_input('Pedal Edema (yes or no)')
+        pe = st.text_input('Pedal Edema (yes or no)', value=peda_edema)
     with col4:
-        ane = st.text_input('Anemia')       
+        ane = st.text_input('Anemia', value=aanemia)
+       
     
 
 
@@ -219,12 +269,7 @@ if (selected == "Kidney Prediction"):
     
     # creating a button for Prediction    
     if st.button("kidney's Test Result"):
-        kidney_prediction = kidney_model.predict([[age, bp, sg, al, su, rbc, pc, pcc, ba, bgr, bu, sc, 
-sod, pot, hemo, pcv, wc, rc, htn, dm, cad, appet, pe, ane]])                          
-        if (kidney_prediction[0] == 1):
-          kidney_diagnosis = "The person has kidney's disease"
-        else:
-          kidney_diagnosis = "The person does not have kidney's disease"
+        kidney_diagnosis = prediction_kidney([[age, bp, sg, al, su, rbc, pc, pcc, ba, bgr, bu, sc, sod, pot, hemo, pcv, wc, rc, htn, dm, cad, appet, pe, ane]])                          
         
     st.success(kidney_diagnosis)
         
