@@ -42,7 +42,7 @@ if (selected == 'Diabetes Prediction'):
         df_test = pd.read_csv(diabete_uploaded_file)
         Pregnancies = df_test["Pregnancies"][0]
         Glucose = df_test["Glucose"][0]
-        BloodPressure = df_test["BloodPressure"][0]
+        BloodPressure = df_test["Blood_pressure"][0]
         Insulin = df_test['Insulin'][0]
         BMI = df_test['BMI'][0]
         DiabetesPedigreeFunction = df_test['DiabetesPedigreeFunction'][0]
