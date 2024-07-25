@@ -172,7 +172,7 @@ if (selected == "Kidney Prediction"):
     bacteria=None
     blood_glucose_random=None
     blood_urea=None
-    serum_creatine=None
+    serum_creatinine=None
     sodium=None
     potassium=None
     haemoglobin=None
@@ -197,7 +197,7 @@ if (selected == "Kidney Prediction"):
         bacteria = df_test["bacteria"][0]
         blood_glucose_random = df_test["blood_glucose_random"][0]
         blood_urea = df_test["blood_urea"][0]
-        serum_creatine = df_test["serum_creatine"][0]
+        serum_creatinine = df_test["serum_creatinine"][0]
         sodium = df_test["sodium"][0]
         potassium = df_test["potassium"][0]
         haemoglobin = df_test["haemoglobin"][0]
@@ -235,7 +235,7 @@ if (selected == "Kidney Prediction"):
     with col1:
         bu = st.text_input('Blood Urea', value=blood_urea)
     with col2:
-        sc = st.text_input('Serum Creatinine', value=serum_creatine)
+        sc = st.text_input('Serum Creatinine', value=serum_creatinine)
     with col3:
         sod = st.text_input('Sodium', value=sodium)
     with col4:
