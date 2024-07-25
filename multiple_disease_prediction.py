@@ -413,7 +413,7 @@ if (selected == "Breast Cancer Prediction"):
     
     # creating a button for Prediction    
     if st.button("Breast Cancer Test Result"):
-        cancer_prediction = prediction_breastcancer([[radius_mean,
+        cancer_diagnosis = prediction_breastcancer([[radius_mean,
             texture_mean,
             perimeter_mean,
             area_mean,
