@@ -53,6 +53,6 @@ def prediction_liver(liste):
     df_csv["Gender_Female"] = 1
     df_csv["Gender_Male"] = 0 
   if pipeline.predict(df_csv)[0] == 0 :
-    return "La maladie n'est pas détectée"
+    return "Le risque potentiel n'est pas détecté sur la maladie du foie"
   else :
-    return "La maladie est détectée"
+    return "Le risque potentiel de la maladie du foie est détecté"

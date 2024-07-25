@@ -47,6 +47,6 @@ pipeline.fit(X_train, y_train)
 y_pred = pipeline.predict(X_test)
 def prediction_maladie_cardiaque(liste):
   if pipeline.predict(liste)[0] == 0 :
-    return "La personne présente une maladie cardiaque"
+    return "Le risque potentiel de maladie cardiaque est détecté"
   else :
-    return "La personne ne présente pas de maladies cardiaques"
+    return "Le risque potentiel de maladie cardiaque n'est pas détecté"

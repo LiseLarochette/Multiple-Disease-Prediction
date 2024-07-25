@@ -50,6 +50,6 @@ y_pred = pipeline.predict(X_test)
 
 def prediction_breastcancer(liste):
   if pipeline.predict(liste)[0] == 0 :
-    return "Tumeur bénigne"
+    return "Le risque potentiel de tumeur bénigne est détecté"
   else :
-    return "Tumeur maligne"
+    return "Le risque potentiel de tumeur maligne est détecté"

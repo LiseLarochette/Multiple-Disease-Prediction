@@ -56,6 +56,6 @@ y_pred = pipeline.predict(X_test)
 
 def prediction_diabete(liste):
   if pipeline.predict(liste)[0] == 0 :
-    return "La personne est non diabétique"
+    return "Le risque potentiel n'est pas détecté sur la maladie du diabète"
   else :
-    return "La personne est diabétique"
+    return "Le risque potentiel sur la maladie du diabète est détecté"
