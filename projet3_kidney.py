@@ -54,7 +54,5 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Entraîner le pipeline sur l'ensemble d'entraînement complet
 pipeline.fit(X_train, y_train)
 
-def prediction_kidney(csv):
-  df_csv = pd.read_csv(csv)
-  df_csv = df_csv[['age', 'bp', 'sg', 'al', 'su', 'rbc', 'pc', 'pcc', 'ba', 'bgr', 'bu', 'sc', 'sod', 'pot', 'hemo', 'pcv', 'wc', 'rc', 'htn', 'dm', 'cad', 'appet', 'pe', 'ane']]
-  return pipeline.predict(df_csv)[0]
+def prediction_kidney(liste):
+  return pipeline.predict(liste)[0]
